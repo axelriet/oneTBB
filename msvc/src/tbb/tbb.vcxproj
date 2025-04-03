@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{73284BFB-1CC9-3F5D-BF90-246CEFCD9CC3}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>tbb</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+    <SpectreMitigation>Spectre</SpectreMitigation>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+    <SpectreMitigation>Spectre</SpectreMitigation>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)bin\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">tbb12_debug</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)bin\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">tbb12</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /d1trimfile:C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\ /d1trimfile:C:/Users/Axel/Documents/Projects/api-ms-azure/external/oneTBB/ /volatile:iso /FS</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <ControlFlowGuard>Guard</ControlFlowGuard>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4324</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild>
+      </MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode>
+      </SupportJustMyCode>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;TBB_USE_DEBUG;__TBB_BUILD;__TBB_DYNAMIC_LOAD_ENABLED=0;__TBB_SOURCE_DIRECTLY_INCLUDED=1;__TBB_USE_ITT_NOTIFY;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;TBB_USE_DEBUG;__TBB_BUILD;__TBB_DYNAMIC_LOAD_ENABLED=0;__TBB_SOURCE_DIRECTLY_INCLUDED=1;__TBB_USE_ITT_NOTIFY;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -DBINARY_DIR=C:/Users/Axel/Documents/Projects/api-ms-azure/out/x64/tbb -DSOURCE_DIR=C:/Users/Axel/Documents/Projects/api-ms-azure/external/oneTBB -DBIN_PATH=C:/Users/Axel/Documents/Projects/api-ms-azure/out/x64/tbb/msvc_19.43_cxx_64_md_debug -DVARS_TEMPLATE=windows/env/vars.bat.in -DVARS_NAME=vars.bat -DTBB_INSTALL_VARS=OFF -DTBB_CMAKE_INSTALL_LIBDIR=lib -P C:/Users/Axel/Documents/Projects/api-ms-azure/external/oneTBB/integration/cmake/generate_vars.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /d1trimfile:C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\ /d1trimfile:C:/Users/Axel/Documents/Projects/api-ms-azure/external/oneTBB/ /volatile:iso /FS</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <ControlFlowGuard>Guard</ControlFlowGuard>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4324</DisableSpecificWarnings>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode>
+      </SupportJustMyCode>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;__TBB_BUILD;__TBB_DYNAMIC_LOAD_ENABLED=0;__TBB_SOURCE_DIRECTLY_INCLUDED=1;__TBB_USE_ITT_NOTIFY;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <StringPooling>true</StringPooling>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;__TBB_BUILD;__TBB_DYNAMIC_LOAD_ENABLED=0;__TBB_SOURCE_DIRECTLY_INCLUDED=1;__TBB_USE_ITT_NOTIFY;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -DBINARY_DIR=C:/Users/Axel/Documents/Projects/api-ms-azure/out/x64/tbb -DSOURCE_DIR=C:/Users/Axel/Documents/Projects/api-ms-azure/external/oneTBB -DBIN_PATH=C:/Users/Axel/Documents/Projects/api-ms-azure/out/x64/tbb/msvc_19.43_cxx_64_md_release -DVARS_TEMPLATE=windows/env/vars.bat.in -DVARS_NAME=vars.bat -DTBB_INSTALL_VARS=OFF -DTBB_CMAKE_INSTALL_LIBDIR=lib -P C:/Users/Axel/Documents/Projects/api-ms-azure/external/oneTBB/integration/cmake/generate_vars.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/Axel/Documents/Projects/api-ms-azure/external/oneTBB/src/tbb/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Axel/Documents/Projects/api-ms-azure/external/oneTBB -BC:/Users/Axel/Documents/Projects/api-ms-azure/out/x64/tbb --check-stamp-file C:/Users/Axel/Documents/Projects/api-ms-azure/out/x64/tbb/src/tbb/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\src\tbb\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/Axel/Documents/Projects/api-ms-azure/external/oneTBB/src/tbb/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Axel/Documents/Projects/api-ms-azure/external/oneTBB -BC:/Users/Axel/Documents/Projects/api-ms-azure/out/x64/tbb --check-stamp-file C:/Users/Axel/Documents/Projects/api-ms-azure/out/x64/tbb/src/tbb/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\src\tbb\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\address_waiter.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\allocator.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\arena.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\arena_slot.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\concurrent_bounded_queue.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\dynamic_link.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\exception.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\governor.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\global_control.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\itt_notify.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\main.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\market.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\tcm_adaptor.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\misc.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\misc_ex.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\observer_proxy.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\parallel_pipeline.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\private_server.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\profiling.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\rml_tbb.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\rtm_mutex.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\rtm_rw_mutex.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\semaphore.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\small_object_pool.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\task.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\task_dispatcher.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\task_group_context.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\thread_dispatcher.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\thread_request_serializer.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\threading_control.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\version.cpp" />
+    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\queuing_rw_mutex.cpp" />
+    <ResourceCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\src\tbb\tbb.rc" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\ZERO_CHECK.vcxproj">
+      <Project>{96792D9E-CA7C-3257-90A9-EEB6437145A9}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,679 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8D4AEE30-CDD8-32AB-8B5F-ED6188E26B1C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <ClCompile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <ClCompile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/Axel/Documents/Projects/api-ms-azure/external/oneTBB/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Axel/Documents/Projects/api-ms-azure/external/oneTBB -BC:/Users/Axel/Documents/Projects/api-ms-azure/out/x64/tbb --check-stamp-file C:/Users/Axel/Documents/Projects/api-ms-azure/out/x64/tbb/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeParseArguments.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CheckSymbolExists.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.31\Templates\CPackConfig.cmake.in;C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\cmake\compilers\MSVC.cmake;C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\cmake\config_generation.cmake;C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\cmake\hwloc_detection.cmake;C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\cmake\memcheck.cmake;C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\cmake\packaging.cmake;C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\cmake\resumable_tasks.cmake;C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\cmake\sanitize.cmake;C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\cmake\test_spec.cmake;C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\cmake\utils.cmake;C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\cmake\vars_utils.cmake;C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\CMakeFiles\3.31.3\CMakeCXXCompiler.cmake;C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\CMakeFiles\3.31.3\CMakeRCCompiler.cmake;C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\CMakeFiles\3.31.3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/Axel/Documents/Projects/api-ms-azure/external/oneTBB/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Axel/Documents/Projects/api-ms-azure/external/oneTBB -BC:/Users/Axel/Documents/Projects/api-ms-azure/out/x64/tbb --check-stamp-file C:/Users/Axel/Documents/Projects/api-ms-azure/out/x64/tbb/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeParseArguments.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\CheckSymbolExists.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.31\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.31\Templates\CPackConfig.cmake.in;C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\cmake\compilers\MSVC.cmake;C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\cmake\config_generation.cmake;C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\cmake\hwloc_detection.cmake;C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\cmake\memcheck.cmake;C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\cmake\packaging.cmake;C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\cmake\resumable_tasks.cmake;C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\cmake\sanitize.cmake;C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\cmake\test_spec.cmake;C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\cmake\utils.cmake;C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\cmake\vars_utils.cmake;C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\CMakeFiles\3.31.3\CMakeCXXCompiler.cmake;C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\CMakeFiles\3.31.3\CMakeRCCompiler.cmake;C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\CMakeFiles\3.31.3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\ZERO_CHECK.vcxproj">
+      <Project>{96792D9E-CA7C-3257-90A9-EEB6437145A9}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\_test_malloc_lib_unload.vcxproj">
+      <Project>{7B0B460C-77C1-3260-8D5D-D8A4612FC5EE}</Project>
+      <Name>_test_malloc_lib_unload</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\_test_malloc_used_by_lib.vcxproj">
+      <Project>{82A5E101-C899-37B3-9837-616D80A57BA3}</Project>
+      <Name>_test_malloc_used_by_lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_allocators.vcxproj">
+      <Project>{8E81A9D2-6115-36E2-A8B7-B9DB2E2600CE}</Project>
+      <Name>conformance_allocators</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_arena_constraints.vcxproj">
+      <Project>{0D7A2F0E-47FD-3F3C-AE51-C7D0DB321D83}</Project>
+      <Name>conformance_arena_constraints</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_async_node.vcxproj">
+      <Project>{B52AFEFD-E5F9-33BE-A65D-D053BE99CD64}</Project>
+      <Name>conformance_async_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_blocked_nd_range.vcxproj">
+      <Project>{8D8D9B1F-EAB4-3C98-9C10-30CD6A934B64}</Project>
+      <Name>conformance_blocked_nd_range</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_blocked_range.vcxproj">
+      <Project>{8D43D969-F3CD-34DE-B931-19B6B50C088A}</Project>
+      <Name>conformance_blocked_range</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_blocked_range2d.vcxproj">
+      <Project>{9BD5D7AA-69AE-3E1B-8A6E-B380E646469F}</Project>
+      <Name>conformance_blocked_range2d</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_blocked_range3d.vcxproj">
+      <Project>{0A087979-80DD-365F-87E8-765866732319}</Project>
+      <Name>conformance_blocked_range3d</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_broadcast_node.vcxproj">
+      <Project>{99138E3F-EE9D-3A75-B8E9-238373F992C1}</Project>
+      <Name>conformance_broadcast_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_buffer_node.vcxproj">
+      <Project>{C5DC30A9-C5A5-3FF4-845A-621A3C1DE41F}</Project>
+      <Name>conformance_buffer_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_collaborative_call_once.vcxproj">
+      <Project>{88822EAC-1026-37ED-A19C-4DB09177CCAA}</Project>
+      <Name>conformance_collaborative_call_once</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_combinable.vcxproj">
+      <Project>{2CBC3AF4-5593-39B2-80CD-AC4B62F4AB26}</Project>
+      <Name>conformance_combinable</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_composite_node.vcxproj">
+      <Project>{AF5D9555-1F85-3520-9E7F-8C025CE9BFF1}</Project>
+      <Name>conformance_composite_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_concurrent_hash_map.vcxproj">
+      <Project>{68F54C41-FB21-32AC-9EFE-66479E89E8FB}</Project>
+      <Name>conformance_concurrent_hash_map</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_concurrent_lru_cache.vcxproj">
+      <Project>{B8A67DAF-6867-337B-AACA-9F627FB6BAC4}</Project>
+      <Name>conformance_concurrent_lru_cache</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_concurrent_map.vcxproj">
+      <Project>{CFFB2A1B-40F4-3AF4-9517-ED1F85F39EAF}</Project>
+      <Name>conformance_concurrent_map</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_concurrent_priority_queue.vcxproj">
+      <Project>{6EF2190B-65D0-3838-B24D-CB80F78705F5}</Project>
+      <Name>conformance_concurrent_priority_queue</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_concurrent_queue.vcxproj">
+      <Project>{D17EB538-3018-3EDE-85CD-81347432DC3E}</Project>
+      <Name>conformance_concurrent_queue</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_concurrent_set.vcxproj">
+      <Project>{BF831048-297F-30BE-AD25-D4B4C1C798FF}</Project>
+      <Name>conformance_concurrent_set</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_concurrent_unordered_map.vcxproj">
+      <Project>{18B8C271-BD74-3841-AE5B-543E40FC461D}</Project>
+      <Name>conformance_concurrent_unordered_map</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_concurrent_unordered_set.vcxproj">
+      <Project>{21FD4934-558B-3BA8-A154-D320AC42DE4B}</Project>
+      <Name>conformance_concurrent_unordered_set</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_concurrent_vector.vcxproj">
+      <Project>{1A9AD2FC-8FA3-309D-8C86-1CE35E89ADC7}</Project>
+      <Name>conformance_concurrent_vector</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_continue_node.vcxproj">
+      <Project>{37A9F063-39C4-3132-AAC4-D4025F850438}</Project>
+      <Name>conformance_continue_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_enumerable_thread_specific.vcxproj">
+      <Project>{FA900051-B3F5-381F-910E-4F84D96E0434}</Project>
+      <Name>conformance_enumerable_thread_specific</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_function_node.vcxproj">
+      <Project>{F20C2D74-0D18-3C14-951F-DB7251CFDEBD}</Project>
+      <Name>conformance_function_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_global_control.vcxproj">
+      <Project>{192F4E16-282F-35CC-990C-62402B73273F}</Project>
+      <Name>conformance_global_control</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_graph.vcxproj">
+      <Project>{6D6453C1-01AA-3634-89F8-C4CB6EBCA591}</Project>
+      <Name>conformance_graph</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_indexer_node.vcxproj">
+      <Project>{EBFCE2CF-FDC0-378C-91D4-4FD32ACA3854}</Project>
+      <Name>conformance_indexer_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_input_node.vcxproj">
+      <Project>{B8B1B421-7CB9-3CEE-9494-E8010B347614}</Project>
+      <Name>conformance_input_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_join_node.vcxproj">
+      <Project>{4AF96D5A-5667-3F43-916A-310F2B91E93E}</Project>
+      <Name>conformance_join_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_limiter_node.vcxproj">
+      <Project>{10F781A2-A8B7-3E2B-9DDD-C193183B9A4A}</Project>
+      <Name>conformance_limiter_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_multifunction_node.vcxproj">
+      <Project>{FCD9B256-08F3-3D23-8094-1E1D08CC4E76}</Project>
+      <Name>conformance_multifunction_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_mutex.vcxproj">
+      <Project>{0F025EFD-8A09-3DB0-B264-183F356220EF}</Project>
+      <Name>conformance_mutex</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_overwrite_node.vcxproj">
+      <Project>{C42AE81E-C0E2-360C-843D-C8E6A6AB154C}</Project>
+      <Name>conformance_overwrite_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_parallel_for.vcxproj">
+      <Project>{EB5EA2A6-4FE6-33D5-B0ED-5E4F374EEC01}</Project>
+      <Name>conformance_parallel_for</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_parallel_for_each.vcxproj">
+      <Project>{036F08D8-C614-35DF-92D7-22ABAD086EDD}</Project>
+      <Name>conformance_parallel_for_each</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_parallel_invoke.vcxproj">
+      <Project>{222A4307-F77B-3C27-A45F-4464D1F0C82B}</Project>
+      <Name>conformance_parallel_invoke</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_parallel_pipeline.vcxproj">
+      <Project>{89D0C0F7-DB85-328B-945A-18AE08D14F4A}</Project>
+      <Name>conformance_parallel_pipeline</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_parallel_reduce.vcxproj">
+      <Project>{9F208FFA-4702-3770-8DD1-A65D9D8CAE6E}</Project>
+      <Name>conformance_parallel_reduce</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_parallel_scan.vcxproj">
+      <Project>{354FF4E1-DD84-38DE-9816-A7076BDF0FD5}</Project>
+      <Name>conformance_parallel_scan</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_parallel_sort.vcxproj">
+      <Project>{8D0D84BE-E53E-3DAD-B61B-EBC61D1970A3}</Project>
+      <Name>conformance_parallel_sort</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_priority_queue_node.vcxproj">
+      <Project>{46E04DAF-6830-3555-97F8-7425EA61EE45}</Project>
+      <Name>conformance_priority_queue_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_queue_node.vcxproj">
+      <Project>{9ADD2326-DDB5-3418-B36D-3CB4EDDAD35A}</Project>
+      <Name>conformance_queue_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_resumable_tasks.vcxproj">
+      <Project>{DAC84C12-694A-36A5-8F68-C425FD696B2D}</Project>
+      <Name>conformance_resumable_tasks</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_sequencer_node.vcxproj">
+      <Project>{183D2A69-E48F-3CDB-AAB6-25C6448CB47B}</Project>
+      <Name>conformance_sequencer_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_split_node.vcxproj">
+      <Project>{B6EB2141-8DFC-3BFC-8BEB-400511828B6A}</Project>
+      <Name>conformance_split_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_task_arena.vcxproj">
+      <Project>{58B0AA45-76DD-3186-AAF0-1654B5E38464}</Project>
+      <Name>conformance_task_arena</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_task_group.vcxproj">
+      <Project>{2681746A-92EE-3255-B4C6-101643A52044}</Project>
+      <Name>conformance_task_group</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_task_group_context.vcxproj">
+      <Project>{ED54A49A-68AE-33D5-AC1A-E3625641DB45}</Project>
+      <Name>conformance_task_group_context</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_tick_count.vcxproj">
+      <Project>{9996E2A6-D95A-3C0F-972F-09327EDC334A}</Project>
+      <Name>conformance_tick_count</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_version.vcxproj">
+      <Project>{B52472DD-34C3-337A-B908-375507819B6E}</Project>
+      <Name>conformance_version</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\conformance_write_once_node.vcxproj">
+      <Project>{EA6FCA05-03D7-3496-9522-77FEAFB8B801}</Project>
+      <Name>conformance_write_once_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\src\tbb\tbb.vcxproj">
+      <Project>{73284BFB-1CC9-3F5D-BF90-246CEFCD9CC3}</Project>
+      <Name>tbb</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\src\tbbmalloc\tbbmalloc.vcxproj">
+      <Project>{5A070935-5BBD-3A62-8F8D-60E2F87DBC74}</Project>
+      <Name>tbbmalloc</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_allocators.vcxproj">
+      <Project>{66ED13CB-5F4D-351C-B5B4-254ED7222A91}</Project>
+      <Name>test_allocators</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_arena_constraints.vcxproj">
+      <Project>{8DFDEA3F-DB2E-3688-9A88-397590C81542}</Project>
+      <Name>test_arena_constraints</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_arena_priorities.vcxproj">
+      <Project>{1909217B-C4A4-3389-8241-004D696567AC}</Project>
+      <Name>test_arena_priorities</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_async_node.vcxproj">
+      <Project>{3A3344EA-D204-3C05-B56D-C572DCD8BC79}</Project>
+      <Name>test_async_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_blocked_range.vcxproj">
+      <Project>{046ED014-A2E0-31D7-A5BF-F76760215856}</Project>
+      <Name>test_blocked_range</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_broadcast_node.vcxproj">
+      <Project>{C37AC945-1A58-3102-A0F0-37597D876615}</Project>
+      <Name>test_broadcast_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_buffer_node.vcxproj">
+      <Project>{FC221EB8-3910-3ECF-B6E3-4FAEE8888A74}</Project>
+      <Name>test_buffer_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_collaborative_call_once.vcxproj">
+      <Project>{69AF95D7-A297-3164-920E-BE5AF9C453C8}</Project>
+      <Name>test_collaborative_call_once</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_composite_node.vcxproj">
+      <Project>{34163115-69B9-392C-8FCA-5ED4C1D04E87}</Project>
+      <Name>test_composite_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_concurrent_hash_map.vcxproj">
+      <Project>{20B7B123-2782-357D-AC07-5C313D88D836}</Project>
+      <Name>test_concurrent_hash_map</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_concurrent_lru_cache.vcxproj">
+      <Project>{3E084DB4-ECCA-3A73-A29C-CF3463480E04}</Project>
+      <Name>test_concurrent_lru_cache</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_concurrent_map.vcxproj">
+      <Project>{B29C8EEF-C454-303F-A0A0-9AAF4DA5D775}</Project>
+      <Name>test_concurrent_map</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_concurrent_monitor.vcxproj">
+      <Project>{7FA5F1B1-B2D3-3843-94C6-6A94413FE78C}</Project>
+      <Name>test_concurrent_monitor</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_concurrent_priority_queue.vcxproj">
+      <Project>{303FFE96-1E01-3579-B0BE-FE024EE8D930}</Project>
+      <Name>test_concurrent_priority_queue</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_concurrent_queue.vcxproj">
+      <Project>{30E5788C-06B0-3513-9F00-2A970050064A}</Project>
+      <Name>test_concurrent_queue</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_concurrent_queue_whitebox.vcxproj">
+      <Project>{CC7FB371-6A87-3AC3-8611-A6B78B878D6F}</Project>
+      <Name>test_concurrent_queue_whitebox</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_concurrent_set.vcxproj">
+      <Project>{CB9DAE0F-66FD-3438-9767-BF7344BBB8F3}</Project>
+      <Name>test_concurrent_set</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_concurrent_unordered_map.vcxproj">
+      <Project>{30B86ADF-9FF7-3DE8-811F-4CB3893C4EB0}</Project>
+      <Name>test_concurrent_unordered_map</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_concurrent_unordered_set.vcxproj">
+      <Project>{6EDA78F3-5A37-3118-98A2-B3EEF8FB46FC}</Project>
+      <Name>test_concurrent_unordered_set</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_concurrent_vector.vcxproj">
+      <Project>{0A5DFBB1-054A-3B28-8EA9-CECEF4C1DC26}</Project>
+      <Name>test_concurrent_vector</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_continue_node.vcxproj">
+      <Project>{D9A72A43-C854-31AA-AFFB-14B76EC1B963}</Project>
+      <Name>test_continue_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_dynamic_link.vcxproj">
+      <Project>{2AF0CA62-8CD8-3DCA-9632-A781197C77D0}</Project>
+      <Name>test_dynamic_link</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_eh_algorithms.vcxproj">
+      <Project>{45D04876-901C-34BB-9800-632240E85829}</Project>
+      <Name>test_eh_algorithms</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_eh_flow_graph.vcxproj">
+      <Project>{773E1799-C0B4-3C1D-B7FD-6063ECA7AB63}</Project>
+      <Name>test_eh_flow_graph</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_eh_thread.vcxproj">
+      <Project>{F7972406-92C9-34A1-8FE2-81C614D5F0D0}</Project>
+      <Name>test_eh_thread</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_enumerable_thread_specific.vcxproj">
+      <Project>{CEE3701C-93C2-3537-B0F9-72985783F2F6}</Project>
+      <Name>test_enumerable_thread_specific</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_environment_whitebox.vcxproj">
+      <Project>{1A35F45D-CE14-3E61-898A-D7C0AF5E962A}</Project>
+      <Name>test_environment_whitebox</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_flow_graph.vcxproj">
+      <Project>{8372C53C-3DEB-39BD-B3C8-A1BE57F9ABBF}</Project>
+      <Name>test_flow_graph</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_flow_graph_priorities.vcxproj">
+      <Project>{6A4F0081-7B5F-325F-A31C-949F59699D2B}</Project>
+      <Name>test_flow_graph_priorities</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_flow_graph_whitebox.vcxproj">
+      <Project>{384E8451-E8BF-3033-9E95-644E785E0103}</Project>
+      <Name>test_flow_graph_whitebox</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_function_node.vcxproj">
+      <Project>{4CCC059E-3491-3374-BD95-22CB1AFE49C0}</Project>
+      <Name>test_function_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_global_control.vcxproj">
+      <Project>{0F4016E1-894B-3250-B450-78B8638C99B1}</Project>
+      <Name>test_global_control</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_handle_perror.vcxproj">
+      <Project>{197D9210-B46D-306E-A830-6B84A7FDA01F}</Project>
+      <Name>test_handle_perror</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_hw_concurrency.vcxproj">
+      <Project>{7220C94E-1089-304D-A85B-03F8469ACBCD}</Project>
+      <Name>test_hw_concurrency</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_indexer_node.vcxproj">
+      <Project>{C3572819-5412-3D8A-9B36-233780A2252B}</Project>
+      <Name>test_indexer_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_input_node.vcxproj">
+      <Project>{33172AB1-3C95-321B-BC8E-8AAFB59A3D8C}</Project>
+      <Name>test_input_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_intrusive_list.vcxproj">
+      <Project>{3C8753D9-1D81-3B0C-B3ED-FDEC0513D852}</Project>
+      <Name>test_intrusive_list</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_join_node.vcxproj">
+      <Project>{7A51ECB7-6A21-3902-9772-9EF5FB43470D}</Project>
+      <Name>test_join_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_join_node_key_matching.vcxproj">
+      <Project>{8F45114C-20B7-3C1E-A566-9F7845EFDA6E}</Project>
+      <Name>test_join_node_key_matching</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_join_node_key_matching_n_args.vcxproj">
+      <Project>{AA18FC76-ACF3-3382-BC18-AFFAF7B7EE90}</Project>
+      <Name>test_join_node_key_matching_n_args</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_join_node_msg_key_matching.vcxproj">
+      <Project>{92BCE98B-C6DE-349C-99D4-76C960A5CC6A}</Project>
+      <Name>test_join_node_msg_key_matching</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_join_node_msg_key_matching_n_args.vcxproj">
+      <Project>{FB7BDE4C-C46B-35B5-87E6-96A457AAF224}</Project>
+      <Name>test_join_node_msg_key_matching_n_args</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_join_node_preview.vcxproj">
+      <Project>{3082E281-B09B-3CE1-BE9D-AB4A2798965F}</Project>
+      <Name>test_join_node_preview</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_limiter_node.vcxproj">
+      <Project>{408C02FA-AA6D-38B7-8A89-2A17630839F3}</Project>
+      <Name>test_limiter_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_malloc_compliance.vcxproj">
+      <Project>{552EAB1E-9A9F-3B8F-BC09-B09A19B63093}</Project>
+      <Name>test_malloc_compliance</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_malloc_init_shutdown.vcxproj">
+      <Project>{0FA0DD2C-6062-3BF9-9780-15FF421118FC}</Project>
+      <Name>test_malloc_init_shutdown</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_malloc_lib_unload.vcxproj">
+      <Project>{16649EDE-2CFA-33BD-9574-8B7321306D76}</Project>
+      <Name>test_malloc_lib_unload</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_malloc_pools.vcxproj">
+      <Project>{0A4DFA0D-A275-3F3B-8861-EA498E25C205}</Project>
+      <Name>test_malloc_pools</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_malloc_pure_c.vcxproj">
+      <Project>{14159EB3-D460-3FEA-B7C6-302BFA721E0A}</Project>
+      <Name>test_malloc_pure_c</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_malloc_regression.vcxproj">
+      <Project>{648A3EC3-A0DE-328A-8DFC-3A4215170A2B}</Project>
+      <Name>test_malloc_regression</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_malloc_shutdown_hang.vcxproj">
+      <Project>{34B68CAB-3460-32E9-9012-759F968CD755}</Project>
+      <Name>test_malloc_shutdown_hang</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_malloc_used_by_lib.vcxproj">
+      <Project>{46FABF4D-40E8-3FEF-8C89-83CC3DEF028E}</Project>
+      <Name>test_malloc_used_by_lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_malloc_whitebox.vcxproj">
+      <Project>{8C4C4EAE-93D9-3148-B999-D401447B252B}</Project>
+      <Name>test_malloc_whitebox</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_multifunction_node.vcxproj">
+      <Project>{F18CFB14-A197-364B-8131-9A57BB78B3A9}</Project>
+      <Name>test_multifunction_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_mutex.vcxproj">
+      <Project>{DF57D1F8-4209-3504-88B4-63CBEA31AF3B}</Project>
+      <Name>test_mutex</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_numa_dist.vcxproj">
+      <Project>{7B71BD2B-C061-387C-95C2-AAD733EE1EDB}</Project>
+      <Name>test_numa_dist</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_openmp.vcxproj">
+      <Project>{64B30E26-1F79-3B86-96A7-386689416989}</Project>
+      <Name>test_openmp</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_overwrite_node.vcxproj">
+      <Project>{9AFD3336-5403-3A12-A958-F1081FA5108C}</Project>
+      <Name>test_overwrite_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_parallel_for.vcxproj">
+      <Project>{23F595AC-BA36-3982-B32A-54B13BC9A863}</Project>
+      <Name>test_parallel_for</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_parallel_for_each.vcxproj">
+      <Project>{34675904-208E-315D-92DC-1A865752119E}</Project>
+      <Name>test_parallel_for_each</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_parallel_invoke.vcxproj">
+      <Project>{6FE6BF19-7800-3574-9DE7-FD68B8EEFAF2}</Project>
+      <Name>test_parallel_invoke</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_parallel_pipeline.vcxproj">
+      <Project>{C9EA3BE3-2EE1-3260-BD53-B438D32E1F2D}</Project>
+      <Name>test_parallel_pipeline</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_parallel_reduce.vcxproj">
+      <Project>{7F2BA2CF-AD44-3524-9ABF-77AFD92A424C}</Project>
+      <Name>test_parallel_reduce</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_parallel_scan.vcxproj">
+      <Project>{AA5D0F41-3B4C-327F-A0ED-81F4B1310DA8}</Project>
+      <Name>test_parallel_scan</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_parallel_sort.vcxproj">
+      <Project>{5424D7AC-9899-39C1-A34C-3A476EB21895}</Project>
+      <Name>test_parallel_sort</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_partitioner.vcxproj">
+      <Project>{255529A6-70E0-3186-87DC-6C5C23CDFCC4}</Project>
+      <Name>test_partitioner</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_priority_queue_node.vcxproj">
+      <Project>{CC0ED7A0-2056-3E52-9C8C-2F26DE168B51}</Project>
+      <Name>test_priority_queue_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_profiling.vcxproj">
+      <Project>{0A6400FD-F1C1-38FE-B04D-7859FF21794C}</Project>
+      <Name>test_profiling</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_queue_node.vcxproj">
+      <Project>{A66E5F41-E64C-3691-98C5-7E64A1EF6176}</Project>
+      <Name>test_queue_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_resumable_tasks.vcxproj">
+      <Project>{0C3676B9-2F9F-3920-A574-86270837149C}</Project>
+      <Name>test_resumable_tasks</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_scalable_allocator.vcxproj">
+      <Project>{FA5EF1EC-6124-3A3D-ADB3-D187DA2CB193}</Project>
+      <Name>test_scalable_allocator</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_scheduler_mix.vcxproj">
+      <Project>{5F8A79C8-7587-3C75-9B22-96CAE70D792D}</Project>
+      <Name>test_scheduler_mix</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_semaphore.vcxproj">
+      <Project>{DBEA1963-2EFF-3579-B5EB-6064A1D29B9E}</Project>
+      <Name>test_semaphore</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_sequencer_node.vcxproj">
+      <Project>{7EB8EDB1-10ED-3AEE-B850-ABB093FA3A71}</Project>
+      <Name>test_sequencer_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_split_node.vcxproj">
+      <Project>{4C5CD871-5E1D-38B6-B1D3-33D8F67F3794}</Project>
+      <Name>test_split_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_tagged_msg.vcxproj">
+      <Project>{5960C879-63AD-3FE0-9348-F881B43D5F43}</Project>
+      <Name>test_tagged_msg</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_task.vcxproj">
+      <Project>{FC9A5E0E-FC79-3428-A8B6-908EF3057ADE}</Project>
+      <Name>test_task</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_task_arena.vcxproj">
+      <Project>{6C221AFB-8B65-3E40-8F41-741AC38692C4}</Project>
+      <Name>test_task_arena</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_task_group.vcxproj">
+      <Project>{C475668A-0173-3A5C-8197-54F4C96D8D11}</Project>
+      <Name>test_task_group</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_tbb_fork.vcxproj">
+      <Project>{10F5D11A-5D24-3653-B148-931CDE589ED3}</Project>
+      <Name>test_tbb_fork</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_tbb_header.vcxproj">
+      <Project>{D659CE1F-B7DF-30F8-862B-567AB955128F}</Project>
+      <Name>test_tbb_header</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_tick_count.vcxproj">
+      <Project>{F96CECA2-A74F-3910-832E-FDA82AD9A4C3}</Project>
+      <Name>test_tick_count</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\test\test_write_once_node.vcxproj">
+      <Project>{4A1E7B9C-74F6-39E0-800B-417C869B4161}</Project>
+      <Name>test_write_once_node</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
