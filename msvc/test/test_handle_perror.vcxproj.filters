@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\test\tbb\test_handle_perror.cpp">
+    <ClCompile Include="D:\GIT\oneTBB\test\tbb\test_handle_perror.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB\test\CMakeLists.txt" />
+    <CustomBuild Include="D:\GIT\oneTBB\test\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">

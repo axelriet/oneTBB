@@ -60,3 +60,6 @@ CMakeSettings.json
 .tags
 .ctags
 
+/msvc/.vs/*
+/msvc/obj
+/msvc/bin

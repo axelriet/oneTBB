@@ -17,13 +17,13 @@ REM
 
 @echo off
 
-set "TBBROOT=C:\Users\Axel\Documents\Projects\api-ms-azure\external\oneTBB"
-set "TBB_DLL_PATH=C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\msvc_19.43_cxx_64_md_release"
+set "TBBROOT=D:\GIT\oneTBB"
+set "TBB_DLL_PATH=D:\GIT\oneTBB\out\x64\tbb\msvc_19.43_cxx_64_md_release"
 
 set "INCLUDE=%TBBROOT%\include;%INCLUDE%"
 set "CPATH=%TBBROOT%\include;%CPATH%"
-set "LIB=C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\msvc_19.43_cxx_64_md_release;%LIB%"
-set "PATH=C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\msvc_19.43_cxx_64_md_release;%PATH%"
-set "PKG_CONFIG_PATH=C:\Users\Axel\Documents\Projects\api-ms-azure\out\x64\tbb\msvc_19.43_cxx_64_md_release\pkgconfig;%PKG_CONFIG_PATH%"
+set "LIB=D:\GIT\oneTBB\out\x64\tbb\msvc_19.43_cxx_64_md_release;%LIB%"
+set "PATH=D:\GIT\oneTBB\out\x64\tbb\msvc_19.43_cxx_64_md_release;%PATH%"
+set "PKG_CONFIG_PATH=D:\GIT\oneTBB\out\x64\tbb\msvc_19.43_cxx_64_md_release\pkgconfig;%PKG_CONFIG_PATH%"
 
 
