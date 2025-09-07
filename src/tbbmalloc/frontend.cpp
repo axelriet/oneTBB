@@ -233,9 +233,36 @@ bool TLSKey::destroy()
     return status1==0;
 }
 
+#pragma warning(push)
+#pragma warning(disable: 26429 26481 26490 26493)
+
+//
+// Added to speedup malloc somewhat -- A. Rietschin
+//
+
+FORCEINLINE
+LPVOID
+FastTlsGetValue (
+    _In_ DWORD TlsIndex
+    ) noexcept
+{
+    if (TlsIndex >= 64)
+    {
+        return reinterpret_cast<LPVOID>(((DWORD64*)__readgsqword(0x1780))[TlsIndex - 64]);
+    }
+    else
+    {
+        return reinterpret_cast<LPVOID>(__readgsqword(0x1480 + (TlsIndex * 8)));
+    }
+}
+
+#pragma warning(pop)
+
 inline TLSData* TLSKey::getThreadMallocTLS() const
 {
-    return (TLSData *)TlsGetValue_func( TLS_pointer_key );
+    //     return (TLSData *)TlsGetValue_func( TLS_pointer_key );
+
+    return (TLSData *)FastTlsGetValue( TLS_pointer_key );
 }
 
 inline void TLSKey::setThreadMallocTLS( TLSData * newvalue ) {
