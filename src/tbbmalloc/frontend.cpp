@@ -43,30 +43,46 @@
     #define TLS_ALLOC_FAILURE FLS_OUT_OF_INDEXES
     #define TlsFree FlsFree
 #else
-
-//
-// Added to speedup malloc somewhat -- A. Rietschin
-//
-
-FORCEINLINE
-LPVOID
-FastTlsGetValue (
-    _In_ DWORD TlsIndex
-    ) noexcept
-{
-    if (TlsIndex >= 64)
+    //
+    // Added to speedup malloc somewhat -- A. Rietschin
+    //
+    #pragma warning(push)
+    #pragma warning(disable: 26429 26481 26490 26493)
+    FORCEINLINE
+    LPVOID
+    FastTlsGetValue (
+        _In_ DWORD TlsIndex
+        ) noexcept
     {
-        return reinterpret_cast<LPVOID>(((DWORD64*)__readgsqword(0x1780))[TlsIndex - 64]);
+        if (TlsIndex >= 64)
+        {
+            return reinterpret_cast<LPVOID>(((DWORD64*)__readgsqword(0x1780))[TlsIndex - 64]);
+        }
+        else
+        {
+            return reinterpret_cast<LPVOID>(__readgsqword(0x1480 + (TlsIndex * 8)));
+        }
     }
-    else
+    FORCEINLINE
+    BOOL
+    FastTlsSetValue (
+        _In_ DWORD TlsIndex,
+        _In_ LPVOID TlsValue
+        ) noexcept
     {
-        return reinterpret_cast<LPVOID>(__readgsqword(0x1480 + (TlsIndex * 8)));
+        if (TlsIndex >= 64)
+        {
+            reinterpret_cast<DWORD64*>(__readgsqword(0x1780))[TlsIndex - 64] = reinterpret_cast<DWORD64>(TlsValue);
+        }
+        else
+        {
+            __writegsqword(0x1480 + (TlsIndex * 8), reinterpret_cast<DWORD64>(TlsValue));
+        }
+
+        return TRUE;
     }
-}
-
-#pragma warning(pop)
-
-    #define TlsSetValue_func TlsSetValue
+    #pragma warning(pop)
+    #define TlsSetValue_func FastTlsSetValue
     #define TlsGetValue_func FastTlsGetValue
     #define TLS_ALLOC_FAILURE TLS_OUT_OF_INDEXES
 #endif
@@ -255,9 +271,6 @@ bool TLSKey::destroy()
     MALLOC_ASSERT(!status1, "The memory manager cannot delete tls key.");
     return status1==0;
 }
-
-#pragma warning(push)
-#pragma warning(disable: 26429 26481 26490 26493)
 
 inline TLSData* TLSKey::getThreadMallocTLS() const
 {
