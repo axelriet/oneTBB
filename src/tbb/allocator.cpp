@@ -148,7 +148,9 @@ void initialize_handler_pointers() {
     allocate_handler.store(allocate_handler_unsafe, std::memory_order_release);
     cache_aligned_allocate_handler.store(cache_aligned_allocate_handler_unsafe, std::memory_order_release);
 
+#if __TBB_USE_ITT_NOTIFY
     PrintExtraVersionInfo( "ALLOCATOR", success?"scalable_malloc":"malloc" );
+#endif
 }
 
 static std::once_flag initialization_state;

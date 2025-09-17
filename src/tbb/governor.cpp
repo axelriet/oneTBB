@@ -501,7 +501,9 @@ void initialization_impl() {
             core_types_count, core_types_indexes
         );
 
+#if __TBB_USE_ITT_NOTIFY
         PrintExtraVersionInfo("TBBBIND", tbbbind_name);
+#endif
         return;
     }
 
@@ -513,7 +515,9 @@ void initialization_impl() {
     core_types_count = 1;
     core_types_indexes = &dummy_index;
 
+#if __TBB_USE_ITT_NOTIFY
     PrintExtraVersionInfo("TBBBIND", "UNAVAILABLE");
+#endif
 }
 
 void initialize() {

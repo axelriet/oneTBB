@@ -255,12 +255,14 @@ bool tcm_adaptor::is_initialized() {
 }
 
 void tcm_adaptor::print_version() {
+#if 0
     if (is_initialized()) {
         __TBB_ASSERT(tcm_get_version_info, nullptr);
         char buffer[1024];
         tcm_get_version_info(buffer, 1024);
         std::fprintf(stderr, "%.*s", 1024, buffer);
     }
+#endif
 }
 
 tcm_adaptor::tcm_adaptor() {

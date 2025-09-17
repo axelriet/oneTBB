@@ -36,6 +36,7 @@ void LargeObjectCache::init(ExtMemoryPool *memPool)
     extMemPool = memPool;
     // scalable_allocation_mode can be called before allocator initialization, respect this manual request
     if (hugeSizeThreshold == 0) {
+#if __TBB_USE_ITT_NOTIFY
         // Huge size threshold initialization if environment variable was set
         long requestedThreshold = tbb::detail::r1::GetIntegralEnvironmentVariable("TBB_MALLOC_SET_HUGE_SIZE_THRESHOLD");
         // Read valid env or initialize by default with max possible values
@@ -44,6 +45,9 @@ void LargeObjectCache::init(ExtMemoryPool *memPool)
         } else {
             setHugeSizeThreshold(maxHugeSize);
         }
+#else
+        setHugeSizeThreshold(maxHugeSize);
+#endif
     }
 }
 

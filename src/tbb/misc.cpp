@@ -71,15 +71,19 @@ size_t DefaultSystemPageSize() {
 }
 
 /** The leading "\0" is here so that applying "strings" to the binary delivers a clean result. */
+#if 0
 static const char VersionString[] = "\0" TBB_VERSION_STRINGS;
-
 static bool PrintVersionFlag = false;
+#endif
 
+#if 0
 void PrintVersion() {
     PrintVersionFlag = true;
     std::fputs(VersionString+1,stderr);
 }
+#endif
 
+#if 0
 void PrintExtraVersionInfo( const char* category, const char* format, ... ) {
     if( PrintVersionFlag ) {
         char str[1024]; std::memset(str, 0, 1024);
@@ -90,6 +94,7 @@ void PrintExtraVersionInfo( const char* category, const char* format, ... ) {
         std::fprintf(stderr, "oneTBB: %s\t%s\n", category, str );
     }
 }
+#endif
 
 //! check for transaction support.
 #if _MSC_VER

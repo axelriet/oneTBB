@@ -2098,11 +2098,11 @@ static bool initMemoryManager()
 #endif
     return true;
 }
-
+#if 0
 static bool GetBoolEnvironmentVariable(const char* name) {
     return tbb::detail::r1::GetBoolEnvironmentVariable(name);
 }
-
+#endif
 //! Ensures that initMemoryManager() is called once and only once.
 /** Does not return until initMemoryManager() has been completed by a thread.
     There is no need to call this routine if mallocInitialized==2 . */
@@ -2132,10 +2132,12 @@ static bool doInitialization()
         MALLOC_EXTRA_INITIALIZATION;
 #endif
 
+#if __TBB_USE_ITT_NOTIFY
         if( GetBoolEnvironmentVariable("TBB_VERSION") ) {
             fputs(VersionString+1,stderr);
             hugePages.printStatus();
         }
+#endif
     }
     /* It can't be 0 or I would have initialized it */
     MALLOC_ASSERT( mallocInitialized.load(std::memory_order_relaxed)==2, ASSERT_TEXT );

@@ -104,7 +104,9 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 :cmErrorLevel
 exit /b %1
 :cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
+if %errorlevel% neq 0 goto :VCEnd
+copy /y D:\GIT\oneTBB\msvc\bin\tbb\x64\Debug\tbb12_debug.lib D:\GIT\oneTBB\lib\tbb12_debug.lib
+copy /y D:\GIT\oneTBB\msvc\bin\tbb\x64\Debug\tbb12_debug.pdb D:\GIT\oneTBB\lib\tbb12_debug.pdb</Command>
     </PostBuildEvent>
     <Lib>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
@@ -168,7 +170,9 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 :cmErrorLevel
 exit /b %1
 :cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
+if %errorlevel% neq 0 goto :VCEnd
+copy /y D:\GIT\oneTBB\msvc\bin\tbb\x64\Release\tbb12.lib D:\GIT\oneTBB\lib\tbb12.lib
+copy /y D:\GIT\oneTBB\msvc\bin\tbb\x64\Release\tbb12.pdb D:\GIT\oneTBB\lib\tbb12.pdb</Command>
     </PostBuildEvent>
     <Lib>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>

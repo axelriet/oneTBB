@@ -106,12 +106,14 @@ void DoOneTimeInitialization() {
     // No fence required for load of InitializationDone, because we are inside a critical section.
     if( !__TBB_InitOnce::InitializationDone ) {
         __TBB_InitOnce::add_ref();
+#if __TBB_USE_ITT_NOTIFY
         if( GetBoolEnvironmentVariable("TBB_VERSION") ) {
             PrintVersion();
             tcm_adaptor::print_version();
         }
-        bool itt_present = false;
+#endif /* __TBB_USE_ITT_NOTIFY */
 #if __TBB_USE_ITT_NOTIFY
+        bool itt_present = false;
         ITT_DoUnsafeOneTimeInitialization();
         itt_present = ITT_Present;
 #endif /* __TBB_USE_ITT_NOTIFY */
@@ -121,7 +123,9 @@ void DoOneTimeInitialization() {
         governor::default_num_threads();
         // Force OS regular page size detection
         governor::default_page_size();
+#if __TBB_USE_ITT_NOTIFY
         PrintExtraVersionInfo( "TOOLS SUPPORT", itt_present ? "enabled" : "disabled" );
+#endif /* __TBB_USE_ITT_NOTIFY */
         __TBB_InitOnce::InitializationDone = true;
     }
     __TBB_InitOnce::unlock();

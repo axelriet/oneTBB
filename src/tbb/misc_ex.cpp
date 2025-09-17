@@ -348,10 +348,12 @@ static void initialize_hardware_concurrency_info () {
     }
 #endif /* __TBB_WIN8UI_SUPPORT */
 
+#if __TBB_USE_ITT_NOTIFY
     PrintExtraVersionInfo("Processor groups", "%d", ProcessorGroupInfo::NumGroups);
     if (ProcessorGroupInfo::NumGroups>1)
         for (int i=0; i<ProcessorGroupInfo::NumGroups; ++i)
             PrintExtraVersionInfo( "----- Group", "%d: size %d", i, theProcessorGroups[i].numProcs);
+#endif
 }
 
 int NumberOfProcessorGroups() {

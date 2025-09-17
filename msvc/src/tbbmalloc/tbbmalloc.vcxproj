@@ -95,6 +95,10 @@
     <Lib>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
     </Lib>
+    <PostBuildEvent>
+      <Command>copy /y D:\GIT\oneTBB\msvc\bin\tbbmalloc\x64\Debug\tbbmalloc_debug.lib D:\GIT\oneTBB\lib\tbbmalloc_debug.lib
+copy /y D:\GIT\oneTBB\msvc\bin\tbbmalloc\x64\Debug\tbbmalloc_debug.pdb D:\GIT\oneTBB\lib\tbbmalloc_debug.pdb</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -145,6 +149,11 @@
     <Lib>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
     </Lib>
+    <PostBuildEvent>
+      <Command>copy /y D:\GIT\oneTBB\msvc\bin\tbbmalloc\x64\Release\tbbmalloc.lib D:\GIT\oneTBB\lib\tbbmalloc.lib
+copy /y D:\GIT\oneTBB\msvc\bin\tbbmalloc\x64\Release\tbbmalloc.pdb D:\GIT\oneTBB\lib\tbbmalloc.pdb
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <CustomBuild Include="D:\GIT\oneTBB\src\tbbmalloc\CMakeLists.txt">
