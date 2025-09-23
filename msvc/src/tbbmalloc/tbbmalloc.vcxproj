@@ -79,6 +79,7 @@
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <SDLCheck>false</SDLCheck>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;TBB_USE_DEBUG;__TBBMALLOC_BUILD;__TBB_DYNAMIC_LOAD_ENABLED=0;__TBB_SOURCE_DIRECTLY_INCLUDED=1;__TBB_USE_ITT_NOTIFY=0;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
@@ -133,6 +134,7 @@ copy /y D:\GIT\oneTBB\msvc\bin\tbbmalloc\x64\Debug\tbbmalloc_debug.pdb D:\GIT\on
       <StringPooling>true</StringPooling>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
       <OmitFramePointers>true</OmitFramePointers>
+      <SDLCheck>false</SDLCheck>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;__TBBMALLOC_BUILD;__TBB_DYNAMIC_LOAD_ENABLED=0;__TBB_SOURCE_DIRECTLY_INCLUDED=1;__TBB_USE_ITT_NOTIFY=0;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
