@@ -327,7 +327,7 @@ public:
     bool destroy();
     void onThreadShutdown(TLSData *tlsData);
 
-    inline TLSData *getTLS(bool create);
+    __forceinline TLSData *getTLS(bool create);
     void clearTLS() { extMemPool.tlsPointerKey.setThreadMallocTLS(nullptr); }
 
     Block *getEmptyBlock(size_t size);
@@ -1034,10 +1034,10 @@ template<bool poolDestroy> void AllLargeBlocksList::releaseAll(Backend *backend)
      }
 }
 
-TLSData* MemoryPool::getTLS(bool create)
+__forceinline TLSData* MemoryPool::getTLS(bool create)
 {
     TLSData* tls = extMemPool.tlsPointerKey.getThreadMallocTLS();
-    if (!tls && create)
+    if (create && !tls)
         tls = extMemPool.tlsPointerKey.createTLS(this, &extMemPool.backend);
     return tls;
 }
