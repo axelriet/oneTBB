@@ -2603,7 +2603,7 @@ static inline void freeSmallObject(void *object)
     }
 }
 
-static __forceinline void *internalPoolMalloc(MemoryPool* memPool, size_t size)
+static void *internalPoolMalloc(MemoryPool* memPool, size_t size)
 {
     Bin* bin;
     Block * mallocBlock;
