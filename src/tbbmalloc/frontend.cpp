@@ -2608,7 +2608,15 @@ static void *internalPoolMalloc(MemoryPool* memPool, size_t size)
     Bin* bin;
     Block * mallocBlock;
 
+#ifndef MALLOC_DISABLE_INITIALIZATION_CHECK
+
     if (!memPool) return nullptr;
+
+#else
+
+    MALLOC_ASSERT(memPool, ASSERT_TEXT);
+
+#endif
 
     if (!size) size = sizeof(size_t);
 
