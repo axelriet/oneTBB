@@ -2422,7 +2422,7 @@ static void *allocateAligned(MemoryPool *memPool, size_t size, size_t alignment)
 {
     MALLOC_ASSERT( isPowerOfTwo(alignment), ASSERT_TEXT );
 
-#ifdef MALLOC_DISABLE_INITIALIZATION_CHECK
+#ifndef MALLOC_DISABLE_INITIALIZATION_CHECK
     if (!isMallocInitialized())
         if (!doInitialization())
             return nullptr;
@@ -2704,7 +2704,9 @@ static __forceinline bool internalPoolFree(MemoryPool *memPool, void *object, si
 
 static __forceinline void *internalMalloc(size_t size)
 {
+#ifndef MALLOC_DISABLE_INITIALIZATION_CHECK
     if (!size) size = sizeof(size_t);
+#endif
 
 #if MALLOC_CHECK_RECURSION
     if (RecursiveMallocCallProtector::sameThreadActive())
@@ -2713,7 +2715,7 @@ static __forceinline void *internalMalloc(size_t size)
             (FreeObject*)defaultMemPool->getFromLLOCache(nullptr, size, slabSize);
 #endif
 
-#ifdef MALLOC_DISABLE_INITIALIZATION_CHECK
+#ifndef MALLOC_DISABLE_INITIALIZATION_CHECK
     if (!isMallocInitialized())
         if (!doInitialization())
             return nullptr;
@@ -3009,9 +3011,13 @@ void init_scalable_malloc()
 
 extern "C" void * scalable_malloc(size_t size)
 {
+#ifdef MALLOC_DISABLE_INITIALIZATION_CHECK
+    return internalMalloc(size);
+#else
     void *ptr = internalMalloc(size);
     if (!ptr) errno = ENOMEM;
     return ptr;
+#endif
 }
 
 extern "C" void scalable_free(void *object)
