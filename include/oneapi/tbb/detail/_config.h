@@ -36,12 +36,17 @@
 
 #include "_export.h"
 
+#if 0 // static __vectorcall build
 #if _MSC_VER
     #define __TBB_EXPORTED_FUNC   __cdecl
     #define __TBB_EXPORTED_METHOD __thiscall
 #else
     #define __TBB_EXPORTED_FUNC
     #define __TBB_EXPORTED_METHOD
+#endif
+#else
+#define __TBB_EXPORTED_FUNC
+#define __TBB_EXPORTED_METHOD
 #endif
 
 #if defined(_MSVC_LANG)

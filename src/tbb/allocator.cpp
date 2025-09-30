@@ -131,6 +131,26 @@ static const dynamic_link_descriptor MallocLinkTable[] = {
 /** Caller is responsible for ensuring this routine is called exactly once.
     The routine attempts to dynamically link with the TBB memory allocator.
     If that allocator is not found, it links to malloc and free. */
+
+//
+// Wrappers for when the library is build with ambient __vectorcall
+// AR
+//
+
+__forceinline void* vectorcall_malloc (
+    _In_ _CRT_GUARDOVERFLOW size_t _Size
+    )
+{
+    return std::malloc(_Size);
+}
+
+__forceinline void vectorcall_free (
+    _Pre_maybenull_ _Post_invalid_ void* _Block
+    )
+{
+    std::free(_Block);
+}
+
 void initialize_handler_pointers() {
     __TBB_ASSERT(allocate_handler == &initialize_allocate_handler, nullptr);
     bool success = dynamic_link(MALLOCLIB_NAME, MallocLinkTable, 4);
@@ -139,8 +159,8 @@ void initialize_handler_pointers() {
         // This must be done now, and not before FillDynamicLinks runs, because if other
         // threads call the handlers, we want them to go through the DoOneTimeInitializations logic,
         // which forces them to wait.
-        allocate_handler_unsafe = &std::malloc;
-        deallocate_handler = &std::free;
+        allocate_handler_unsafe = &vectorcall_malloc;
+        deallocate_handler = &vectorcall_free;
         cache_aligned_allocate_handler_unsafe = &std_cache_aligned_allocate;
         cache_aligned_deallocate_handler = &std_cache_aligned_deallocate;
     }

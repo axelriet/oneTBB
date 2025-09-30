@@ -40,10 +40,14 @@
 extern "C" {
 #endif /* __cplusplus */
 
-#if _MSC_VER
+#if 0 // static __vectorcall build
+    #if _MSC_VER
     #define __TBB_EXPORTED_FUNC __cdecl
-#else
+    #else
     #define __TBB_EXPORTED_FUNC
+    #endif
+    #else
+#define __TBB_EXPORTED_FUNC
 #endif
 
 /** The "malloc" analogue to allocate block of memory of size bytes.
