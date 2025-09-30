@@ -50,6 +50,10 @@ extern "C" {
 #define __TBB_EXPORTED_FUNC
 #endif
 
+#ifdef MALLOC_DISABLE_INITIALIZATION_CHECK
+TBBMALLOC_EXPORT void __TBB_EXPORTED_FUNC init_scalable_malloc();
+#endif
+
 /** The "malloc" analogue to allocate block of memory of size bytes.
   * @ingroup memory_allocation */
 TBBMALLOC_EXPORT void* __TBB_EXPORTED_FUNC scalable_malloc(size_t size);

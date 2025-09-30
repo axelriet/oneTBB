@@ -34,7 +34,14 @@
     #endif
     #include <unistd.h> // sysconf(_SC_PAGESIZE)
 #elif USE_WINTHREAD
-    #define GetMyTID() GetCurrentThreadId()
+#ifndef FastGetCurrentThreadId
+#if defined(_M_X64)
+#define FastGetCurrentThreadId()        (__readgsdword(0x48))
+#else
+#define FastGetCurrentThreadId()        GetCurrentThreadId()
+#endif
+#endif
+#define GetMyTID() FastGetCurrentThreadId()
 #if __TBB_WIN8UI_SUPPORT
     #include<thread>
     #define TlsSetValue_func FlsSetValue
@@ -231,7 +238,7 @@ public:
 #if USE_PTHREAD
     bool isCurrentThreadId() const { return pthread_equal(pthread_self(), tid.load(std::memory_order_relaxed)); }
 #else
-    bool isCurrentThreadId() const { return GetCurrentThreadId() == tid.load(std::memory_order_relaxed); }
+    bool isCurrentThreadId() const { return GetMyTID() == tid.load(std::memory_order_relaxed); }
 #endif
     ThreadId& operator=(const ThreadId& other) {
         tid.store(other.tid.load(std::memory_order_relaxed), std::memory_order_relaxed);
@@ -2415,9 +2422,11 @@ static void *allocateAligned(MemoryPool *memPool, size_t size, size_t alignment)
 {
     MALLOC_ASSERT( isPowerOfTwo(alignment), ASSERT_TEXT );
 
+#ifdef MALLOC_DISABLE_INITIALIZATION_CHECK
     if (!isMallocInitialized())
         if (!doInitialization())
             return nullptr;
+#endif
 
     void *result;
     if (size<=maxSegregatedObjectSize && alignment<=maxSegregatedObjectSize)
@@ -2594,7 +2603,7 @@ static inline void freeSmallObject(void *object)
     }
 }
 
-static void *internalPoolMalloc(MemoryPool* memPool, size_t size)
+static __forceinline void *internalPoolMalloc(MemoryPool* memPool, size_t size)
 {
     Bin* bin;
     Block * mallocBlock;
@@ -2676,7 +2685,7 @@ static void *internalPoolMalloc(MemoryPool* memPool, size_t size)
 // For size is known and < minLargeObjectSize, we still need to check
 // if the actual object is large, because large objects might be used
 // for aligned small allocations.
-static bool internalPoolFree(MemoryPool *memPool, void *object, size_t size)
+static __forceinline bool internalPoolFree(MemoryPool *memPool, void *object, size_t size)
 {
     if (!memPool || !object) return false;
 
@@ -2693,7 +2702,7 @@ static bool internalPoolFree(MemoryPool *memPool, void *object, size_t size)
     return true;
 }
 
-static void *internalMalloc(size_t size)
+static __forceinline void *internalMalloc(size_t size)
 {
     if (!size) size = sizeof(size_t);
 
@@ -2704,13 +2713,16 @@ static void *internalMalloc(size_t size)
             (FreeObject*)defaultMemPool->getFromLLOCache(nullptr, size, slabSize);
 #endif
 
+#ifdef MALLOC_DISABLE_INITIALIZATION_CHECK
     if (!isMallocInitialized())
         if (!doInitialization())
             return nullptr;
+#endif
+
     return internalPoolMalloc(defaultMemPool, size);
 }
 
-static void internalFree(void *object)
+static __forceinline void internalFree(void *object)
 {
     internalPoolFree(defaultMemPool, object, 0);
 }
@@ -2982,6 +2994,18 @@ extern "C" void __TBB_mallocProcessShutdownNotification(bool windows_process_dyi
         MALLOC_ITT_RELEASE_RESOURCES();
     }
 }
+
+#ifdef MALLOC_DISABLE_INITIALIZATION_CHECK
+
+void init_scalable_malloc()
+{
+    if (!isMallocInitialized())
+    {
+        doInitialization();
+    }
+}
+
+#endif
 
 extern "C" void * scalable_malloc(size_t size)
 {
