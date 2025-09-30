@@ -1037,7 +1037,7 @@ template<bool poolDestroy> void AllLargeBlocksList::releaseAll(Backend *backend)
 TLSData* MemoryPool::getTLS(bool create)
 {
     TLSData* tls = extMemPool.tlsPointerKey.getThreadMallocTLS();
-    if (create && !tls)
+    if (!tls && create)
         tls = extMemPool.tlsPointerKey.createTLS(this, &extMemPool.backend);
     return tls;
 }
