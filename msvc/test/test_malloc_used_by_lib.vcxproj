@@ -203,10 +203,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="D:\GIT\oneTBB\out\x64\tbb\test\_test_malloc_used_by_lib.vcxproj">
-      <Project>{82A5E101-C899-37B3-9837-616D80A57BA3}</Project>
-      <Name>_test_malloc_used_by_lib</Name>
-    </ProjectReference>
     <ProjectReference Include="D:\GIT\oneTBB\out\x64\tbb\src\tbbmalloc\tbbmalloc.vcxproj">
       <Project>{5A070935-5BBD-3A62-8F8D-60E2F87DBC74}</Project>
       <Name>tbbmalloc</Name>

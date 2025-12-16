@@ -203,10 +203,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="D:\GIT\oneTBB\out\x64\tbb\test\_test_malloc_lib_unload.vcxproj">
-      <Project>{7B0B460C-77C1-3260-8D5D-D8A4612FC5EE}</Project>
-      <Name>_test_malloc_lib_unload</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

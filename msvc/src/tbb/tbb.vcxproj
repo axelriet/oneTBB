@@ -4,6 +4,10 @@
     <PreferredToolArchitecture>x64</PreferredToolArchitecture>
   </PropertyGroup>
   <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="ASAN|x64">
+      <Configuration>ASAN</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
@@ -27,6 +31,12 @@
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ASAN|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+    <EnableASAN>true</EnableASAN>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
@@ -42,9 +52,13 @@
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)bin\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='ASAN|x64'">$(SolutionDir)bin\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='ASAN|x64'">$(SolutionDir)obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">tbb12_debug</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='ASAN|x64'">tbb12_debug_asan</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='ASAN|x64'">.lib</TargetExt>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)bin\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">tbb12</TargetName>
@@ -80,6 +94,7 @@
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
       <SDLCheck>false</SDLCheck>
       <CallingConvention>VectorCall</CallingConvention>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;TBB_USE_DEBUG;__TBB_BUILD;__TBB_DYNAMIC_LOAD_ENABLED=0;__TBB_SOURCE_DIRECTLY_INCLUDED=1;__TBB_USE_ITT_NOTIFY=0;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
@@ -107,6 +122,69 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd
 copy /y D:\GIT\oneTBB\msvc\bin\tbb\x64\Debug\tbb12_debug.lib D:\GIT\oneTBB\lib\tbb12_debug.lib
 copy /y D:\GIT\oneTBB\msvc\bin\tbb\x64\Debug\tbb12_debug.pdb D:\GIT\oneTBB\lib\tbb12_debug.pdb</Command>
+    </PostBuildEvent>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ASAN|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\GIT\oneTBB\src\tbb\..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /d1trimfile:D:\GIT\oneTBB\ /d1trimfile:D:/GIT/oneTBB/ /volatile:iso /FS</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <ControlFlowGuard>Guard</ControlFlowGuard>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4324</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild>
+      </MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode>
+      </SupportJustMyCode>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;TBB_USE_DEBUG;__TBB_BUILD;__TBB_DYNAMIC_LOAD_ENABLED=0;__TBB_SOURCE_DIRECTLY_INCLUDED=1;__TBB_USE_ITT_NOTIFY=0;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <SDLCheck>false</SDLCheck>
+      <CallingConvention>VectorCall</CallingConvention>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;TBB_USE_DEBUG;__TBB_BUILD;__TBB_DYNAMIC_LOAD_ENABLED=0;__TBB_SOURCE_DIRECTLY_INCLUDED=1;__TBB_USE_ITT_NOTIFY=0;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\GIT\oneTBB\src\tbb\..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\GIT\oneTBB\src\tbb\..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -DBINARY_DIR=D:/GIT/oneTBB/out/x64/tbb -DSOURCE_DIR=D:/GIT/oneTBB -DBIN_PATH=D:/GIT/oneTBB/out/x64/tbb/msvc_19.43_cxx_64_md_debug -DVARS_TEMPLATE=windows/env/vars.bat.in -DVARS_NAME=vars.bat -DTBB_INSTALL_VARS=OFF -DTBB_CMAKE_INSTALL_LIBDIR=lib -P D:/GIT/oneTBB/integration/cmake/generate_vars.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+copy /y D:\GIT\oneTBB\msvc\bin\tbb\x64\$(Configuration)\tbb12_debug_asan.lib D:\GIT\oneTBB\lib\tbb12_debug_asan.lib
+copy /y D:\GIT\oneTBB\msvc\bin\tbb\x64\$(Configuration)\tbb12_debug_asan.pdb D:\GIT\oneTBB\lib\tbb12_debug_asan.pdb</Command>
     </PostBuildEvent>
     <Lib>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
@@ -184,6 +262,7 @@ copy /y D:\GIT\oneTBB\msvc\bin\tbb\x64\Release\tbb12.pdb D:\GIT\oneTBB\lib\tbb12
     <CustomBuild Include="D:\GIT\oneTBB\src\tbb\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/GIT/oneTBB/src/tbb/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='ASAN|x64'">Building Custom Rule D:/GIT/oneTBB/src/tbb/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -SD:/GIT/oneTBB -BD:/GIT/oneTBB/out/x64/tbb --check-stamp-file D:/GIT/oneTBB/out/x64/tbb/src/tbb/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
@@ -193,9 +272,21 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='ASAN|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/GIT/oneTBB -BD:/GIT/oneTBB/out/x64/tbb --check-stamp-file D:/GIT/oneTBB/out/x64/tbb/src/tbb/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='ASAN|x64'">%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\GIT\oneTBB\out\x64\tbb\src\tbb\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='ASAN|x64'">D:\GIT\oneTBB\out\x64\tbb\src\tbb\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='ASAN|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/GIT/oneTBB/src/tbb/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -SD:/GIT/oneTBB -BD:/GIT/oneTBB/out/x64/tbb --check-stamp-file D:/GIT/oneTBB/out/x64/tbb/src/tbb/CMakeFiles/generate.stamp
@@ -247,14 +338,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ResourceCompile Include="D:\GIT\oneTBB\src\tbb\tbb.rc" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <ProjectReference Include="D:\GIT\oneTBB\out\x64\tbb\ZERO_CHECK.vcxproj">
-      <Project>{96792D9E-CA7C-3257-90A9-EEB6437145A9}</Project>
-      <Name>ZERO_CHECK</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

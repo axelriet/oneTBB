@@ -135,12 +135,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="D:\GIT\oneTBB\out\x64\tbb\ZERO_CHECK.vcxproj">
-      <Project>{96792D9E-CA7C-3257-90A9-EEB6437145A9}</Project>
-      <Name>ZERO_CHECK</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </ProjectReference>
     <ProjectReference Include="D:\GIT\oneTBB\out\x64\tbb\ALL_BUILD.vcxproj">
       <Project>{8D4AEE30-CDD8-32AB-8B5F-ED6188E26B1C}</Project>
       <Name>ALL_BUILD</Name>

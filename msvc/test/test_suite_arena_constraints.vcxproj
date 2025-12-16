@@ -117,14 +117,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="D:\GIT\oneTBB\out\x64\tbb\test\conformance_arena_constraints.vcxproj">
-      <Project>{0D7A2F0E-47FD-3F3C-AE51-C7D0DB321D83}</Project>
-      <Name>conformance_arena_constraints</Name>
-    </ProjectReference>
-    <ProjectReference Include="D:\GIT\oneTBB\out\x64\tbb\test\test_arena_constraints.vcxproj">
-      <Project>{8DFDEA3F-DB2E-3688-9A88-397590C81542}</Project>
-      <Name>test_arena_constraints</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
